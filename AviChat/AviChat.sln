@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.35027.167
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AviChatControllers", "AviChatControllers\AviChatControllers.csproj", "{DE94DDCF-418D-4779-B60E-27D628BCACAA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DE94DDCF-418D-4779-B60E-27D628BCACAA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE94DDCF-418D-4779-B60E-27D628BCACAA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE94DDCF-418D-4779-B60E-27D628BCACAA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE94DDCF-418D-4779-B60E-27D628BCACAA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C0B65EED-60F0-44C9-A723-C77D0CAD7C37}
+	EndGlobalSection
+EndGlobal
