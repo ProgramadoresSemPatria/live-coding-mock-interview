@@ -1,31 +1,13 @@
-# Live Coding Mock Interview 2 - Weather  API
-Develop a weather API in Node.js that allows the user to view weather information given the location.
-
-## Constraints
-- The application doesn't necessarily have to authenticate users, or keep track of them.
-- Use the OpenWeatherAPI as a data source for weather data.
-  - An API key will be given to you
-  - Current weather API: https://openweathermap.org/current
-  - Geocoding API (map location to latitude and longitude): https://openweathermap.org/api/geocoding-api
-  - 60 calls per minute limit
+# Live Coding Mock Interview 3 - Expense Tracker
+This is a simple front-end Expense Tracker web application built using HTML, CSS, and JavaScript. The app allows users to add expenses, view a list of all added expenses, and calculate the total cost.
 
 ## Features
-- [ ] The user can search for the weather in a specific city
-- [ ] The app fetches weather data from OpenWeatherAPI
-- [ ] The app returns a JSON object containing the following features:
-  - [ ] Current temperature
-  - [ ] "Feels like" temperature
-  - [ ] Maximum temperature today
-  - [ ] Minimum temperature today
-  - [ ] Pressure
-  - [ ] Humidity
-  - [ ] Wind speed
-  - [ ] Wind direction
+- [ ] Add Expense: Users can input the name and amount of an expense, and it will be added to the list of expenses.
+- [ ] Expense List: Displays all the added expenses with their names and amounts.
+- [ ] Total Calculation: Automatically updates and displays the total amount of all expenses.
 
 ## Bonus Features
-- [ ] The app has to be scalable for thousands of requests per second
-  - This can only be verified through code, as load testing this would surpass the 60 calls per minute limit
-- [ ] Units for each feature:
-  - [ ] Along with the value, display the unit for each feature (example: `temperature: { value: 30, unit: "C" }`)
-  - [ ] The user can input a desired unit for each feature (example: `temperature: "C"` or `temperature: "F"` or `pressure: "atm"`)
-    - The API would then convert the fetched value to the unit specified by the user
+- [ ] Delete Expense: Users can remove any expense from the list, and the total will automatically adjust.
+- [ ] Basic Form Validation: Ensures that both the name and amount fields are filled before adding an expense.
+- [ ] Responsive Design: The app is responsive and adjusts layout for different screen sizes.
+- [ ] Styling: Basic styling is applied to make the app user-friendly and visually appealing.
