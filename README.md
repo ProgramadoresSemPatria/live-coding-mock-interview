@@ -1,13 +1,39 @@
-# Live Coding Mock Interview 3 - Expense Tracker
-This is a simple front-end Expense Tracker web application built using HTML, CSS, and JavaScript. The app allows users to add expenses, view a list of all added expenses, and calculate the total cost.
+# Live Coding Mock Interview 4 - Blockchain Simulator
+Implement a simple blockchain node simulator where multiple nodes reach consensus on a simple operation (like adding two numbers). Each node runs in its own process, and when a request is made, the nodes must communicate, reach consensus, and return the result.
 
 ## Features
-- [ ] Add Expense: Users can input the name and amount of an expense, and it will be added to the list of expenses.
-- [ ] Expense List: Displays all the added expenses with their names and amounts.
-- [ ] Total Calculation: Automatically updates and displays the total amount of all expenses.
+- [ ] Implement the node process
+- [ ] Implement a solution for handling requests in a decentralized way so that all nodes participate in the process
+- [ ] Implement communication between the nodes or between brokers and nodes using any protocol you desire
 
 ## Bonus Features
-- [ ] Delete Expense: Users can remove any expense from the list, and the total will automatically adjust.
-- [ ] Basic Form Validation: Ensures that both the name and amount fields are filled before adding an expense.
-- [ ] Responsive Design: The app is responsive and adjusts layout for different screen sizes.
-- [ ] Styling: Basic styling is applied to make the app user-friendly and visually appealing.
+- [ ] Log operations to a file or stdout
+- [ ] Add a CLI flag (`--faulty`) to make a node faulty, returning a random result instead of the correct value
+
+Example (basic):
+```bash
+for i in {1..5}; do
+  ./node &
+done
+
+./master &
+
+curl -d '{"num1": 1, "num2": 3}' <MASTER_IP> # Should return 4
+```
+
+Example (advanced):
+```bash
+for i in {1..5}; do
+  if (( i % 2 == 0 )); then
+    echo "Starting faulty node $i"
+    ./node --faulty &
+  else
+    echo "Starting normal node $i"
+    ./node &
+  fi
+done
+
+./master &
+
+curl -d '{"num1": 1, "num2": 3}' <MASTER_IP> # Should return 4
+```
