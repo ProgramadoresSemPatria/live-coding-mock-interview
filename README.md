@@ -1,39 +1,24 @@
-# Live Coding Mock Interview 4 - Blockchain Simulator
-Implement a simple blockchain node simulator where multiple nodes reach consensus on a simple operation (like adding two numbers). Each node runs in its own process, and when a request is made, the nodes must communicate, reach consensus, and return the result.
+# Live Coding Mock Interview 5 - Blockchain Wallet Stats Dashboard
+In pseudocode, implement a web dashboard with info about a given wallet in the blockchain.
+
+## Constraints
+- Pseudocode only, no real implementation needed
+  - The more details the better: language, framework, libraries, but no in-depth implementation needed
+  - Describe each logic step of your application
+- Your communication will be the main evaluation point
+- You can use the concepts of any blockchain you are most familiar with
 
 ## Features
-- [ ] Implement the node process
-- [ ] Implement a solution for handling requests in a decentralized way so that all nodes participate in the process
-- [ ] Implement communication between the nodes or between brokers and nodes using any protocol you desire
+- [ ] Query the blockchain for transaction data
+- [ ] Aggregate data to get stats
+  - [ ] Minimum transaction value
+  - [ ] Maximum transaction value
+  - [ ] Average transaction value
+  - [ ] Sum of all transaction values
+- [ ] Present stats in a dashboard
 
 ## Bonus Features
-- [ ] Log operations to a file or stdout
-- [ ] Add a CLI flag (`--faulty`) to make a node faulty, returning a random result instead of the correct value
-
-Example (basic):
-```bash
-for i in {1..5}; do
-  ./node &
-done
-
-./master &
-
-curl -d '{"num1": 1, "num2": 3}' <MASTER_IP> # Should return 4
-```
-
-Example (advanced):
-```bash
-for i in {1..5}; do
-  if (( i % 2 == 0 )); then
-    echo "Starting faulty node $i"
-    ./node --faulty &
-  else
-    echo "Starting normal node $i"
-    ./node &
-  fi
-done
-
-./master &
-
-curl -d '{"num1": 1, "num2": 3}' <MASTER_IP> # Should return 4
-```
+- [ ] Dashboard is responsive (describe features in pseudocode that would make the layout responsive)
+- [ ] Layout components are detailed in the implementation (buttons, sliders, charts, etc.)
+- [ ] Blockchain implementation is detailed and includes multiple features
+- [ ] Implementation is optimal
