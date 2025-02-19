@@ -1,39 +1,35 @@
-# Live Coding Mock Interview 4 - Blockchain Simulator
-Implement a simple blockchain node simulator where multiple nodes reach consensus on a simple operation (like adding two numbers). Each node runs in its own process, and when a request is made, the nodes must communicate, reach consensus, and return the result.
+# Live Coding Mock Interview 7 - URL Shortener App
+Build a URL shortener from scratch using Node.js, React/Next.js, TypeScript, and an in-memory database. The app should allow users to enter a long URL, generate a shortened version, and redirect users when they visit the short URL.
 
 ## Features
-- [ ] Implement the node process
-- [ ] Implement a solution for handling requests in a decentralized way so that all nodes participate in the process
-- [ ] Implement communication between the nodes or between brokers and nodes using any protocol you desire
+### Backend
+- [ ] Create an in-memory storage.
+- [ ] Expose a POST `/shorten` endpoint that:
+  - [ ] Accepts a long URL.
+  - [ ] Generates a short URL
+  - [ ] Stores the mapping in memory.
+- [ ] Expose a GET `/:shortUrl` endpoint that:
+  - [ ] Looks up the long URL from in-memory storage.
+  - [ ] Redirects the user to the original URL.
+- [ ] Implementation in JavaScript
 
-## Bonus Features
-- [ ] Log operations to a file or stdout
-- [ ] Add a CLI flag (`--faulty`) to make a node faulty, returning a random result instead of the correct value
+### Frontend
 
-Example (basic):
-```bash
-for i in {1..5}; do
-  ./node &
-done
+- [ ] Simple form to input a long URL.
+- [ ] Call the backend `/shorten` API and display the generated short URL.
+- [ ] Clicking the short URL should open it in a new tab.
+- [ ] Implementation in JavaScript
 
-./master &
+## Bonus Goals
 
-curl -d '{"num1": 1, "num2": 3}' <MASTER_IP> # Should return 4
-```
+### Backend
+- [ ] Set up PostgreSQL connection.
+- [ ] Migrate storage from in-memory to PostgreSQL.
+- [ ] Implement a visit count feature in the database.
+- [ ] Provide a Docker Compose file with PostgreSQL.
+- [ ] Implementation in TypeScript
 
-Example (advanced):
-```bash
-for i in {1..5}; do
-  if (( i % 2 == 0 )); then
-    echo "Starting faulty node $i"
-    ./node --faulty &
-  else
-    echo "Starting normal node $i"
-    ./node &
-  fi
-done
-
-./master &
-
-curl -d '{"num1": 1, "num2": 3}' <MASTER_IP> # Should return 4
-```
+### Frontend
+- [ ] Show a list of previously shortened URLs.
+- [ ] Display the number of visits per short URL.
+- [ ] Implementation in TypeScript
