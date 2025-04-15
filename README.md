@@ -1,31 +1,76 @@
-# Live Coding Mock Interview 8 - Simple Voting System
-Build a Simple Voting System from scratch. The app should allow users to create a poll with multiple options, vote for an option, and see the results update dynamically. The backend should expose REST APIs to handle poll creation, voting, and retrieving results, while the frontend should provide a user-friendly interface for interacting with the system.
+# Live Coding Mock Interview 9 – Rust Unix Utilities
 
-## Features
-### Backend
+Reimplement basic Unix utilities using Rust. The goal is to evaluate your familiarity with systems programming, idiomatic Rust, and CLI design. You will build a series of small CLI programs, each increasing in complexity.
 
-- [ ] API Endpoints:
-  - [ ] POST /polls → Create a poll with options.
-  - [ ] POST /vote → Cast a vote for a poll option.
-  - [ ] GET /polls/{id}/results → Fetch poll results.
-- [ ] Data Storage:
-  - [ ] Use an in-memory map or SQLite to store votes.
+**You may use any Rust standard or third-party crate. Shelling out to system binaries (e.g. `exec`, `Command::new("ls")`) is **not allowed**. Focus on clean, idiomatic, and functional Rust.**
 
-### Frontend
+## Tasks
 
-- [ ] A form to create a poll and select voting options.
-- [ ] A button to submit a vote.
-- [ ] Poll results displayed dynamically via API polling.
+### Task 1: `ls` – List Directory Contents
 
-## Bonus Goals
+- [ ] Accept a path as input and list files and directories within it.
+- [ ] Default to the current directory if no path is provided.
 
-### Backend
-- [ ] Authentication.
-  - [ ] Users can only vote once.
-- [ ] Use a PostgreSQL connection.
-  - [ ] Provide a Docker Compose file with PostgreSQL.
+**Example:**
+```bash
+my_ls ./src
+```
 
-### Frontend
-- [ ] Registration and login pages.
-- [ ] Show vote percentages instead of raw numbers.
-- [ ] Highlight the user's vote
+**Example Output:**
+```
+main.rs
+lib.rs
+utils
+```
+
+#### Bonus Goals
+- [ ] `-a` flag: Show hidden files.
+- [ ] `-l` flag: Show details (permissions, size, modified time).
+- [ ] Sort results alphabetically.
+
+---
+
+### Task 2: `grep` – Search for Matching Lines
+
+- [ ] Search a file for lines matching a text pattern.
+- [ ] Print all matching lines.
+
+**Example:**
+```bash
+my_grep error ./logs.txt
+```
+
+**Example Output:**
+```
+[ERROR] Failed to load config
+[ERROR] Out of memory
+```
+
+#### Bonus Goals
+- [ ] `-i` flag: Case-insensitive search.
+- [ ] `-n` flag: Show line numbers.
+- [ ] Support regex patterns (use `regex` crate).
+
+---
+
+### Task 3: `find` – Recursively Find Files by Name
+
+- [ ] Recursively walk a given directory.
+- [ ] Print all files whose names exactly match the input.
+
+**Example:**
+```bash
+my_find ./src main.rs
+```
+
+**Example Output:**
+```
+./src/main.rs
+./src/bin/main.rs
+```
+
+#### Bonus Goals
+- [ ] Filter by file extension (e.g. `.rs`, `.txt`).
+- [ ] Match by partial name or regex.
+- [ ] `-d` flag: Include directories in results.
+- [ ] Use multi-threading for traversal speed-up (optional).
