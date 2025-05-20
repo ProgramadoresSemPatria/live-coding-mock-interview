@@ -1,76 +1,49 @@
-# Live Coding Mock Interview 9 – Rust Unix Utilities
+# Live Coding Mock Interview 10 – Kanban Board (JavaScript/TypeScript)
+Build a lightweight Kanban board using JavaScript or TypeScript. This exercise evaluates your frontend architecture skills, component decomposition, state management, and optional backend simulation or integration.
 
-Reimplement basic Unix utilities using Rust. The goal is to evaluate your familiarity with systems programming, idiomatic Rust, and CLI design. You will build a series of small CLI programs, each increasing in complexity.
+You may use any npm package or UI library (e.g., Tailwind, DnD libraries). Focus on clean, typed, and functional code.
 
-**You may use any Rust standard or third-party crate. Shelling out to system binaries (e.g. `exec`, `Command::new("ls")`) is **not allowed**. Focus on clean, idiomatic, and functional Rust.**
+## 🎯 Objective
+Create a simple Kanban board with 3 columns:
+- Todo
+- In Progress
+- Done
 
-## Tasks
+Users should be able to create tasks and move them between columns via drag-and-drop.
 
-### Task 1: `ls` – List Directory Contents
+## 🛠 Base Requirements
+### Task 1: Display Columns
+- [ ] Display three columns labeled: Todo, In Progress, Done.
+- [ ] Each column should list its associated tasks.
 
-- [ ] Accept a path as input and list files and directories within it.
-- [ ] Default to the current directory if no path is provided.
+### Task 2: Add Tasks
+- [ ] Provide a way to add a new task to a column (e.g., an input and button).
+- [ ] Tasks must have a unique ID and a text label.
 
-**Example:**
-```bash
-my_ls ./src
-```
+### Task 3: Move Tasks Between Columns
+- [ ] Implement drag-and-drop to move tasks between columns.
+- [ ] The task state must update immediately on drop.
 
-**Example Output:**
-```
-main.rs
-lib.rs
-utils
-```
+### Task 4: Component Structure
+- [ ] Use modular React components for Board, Column, and Task.
+- [ ] Use useState or useReducer to manage board state.
 
-#### Bonus Goals
-- [ ] `-a` flag: Show hidden files.
-- [ ] `-l` flag: Show details (permissions, size, modified time).
-- [ ] Sort results alphabetically.
+## ✨ Bonus Goals
+### Bonus 1: State Persistence
+- [ ] Save the board state to localStorage.
+- [ ] Load the saved state on page refresh.
 
----
+### Bonus 2: Task Details
+- [ ] Allow editing task descriptions.
+- [ ] Optionally add metadata (e.g., created date).
 
-### Task 2: `grep` – Search for Matching Lines
+### Bonus 3: Task Deletion
+- [ ] Add a delete button for removing a task.
 
-- [ ] Search a file for lines matching a text pattern.
-- [ ] Print all matching lines.
+### Bonus 4: Backend Integration
+- [ ] Simulate a backend with an Express.js server.
+- [ ] Create basic GET and POST endpoints to sync board state.
 
-**Example:**
-```bash
-my_grep error ./logs.txt
-```
-
-**Example Output:**
-```
-[ERROR] Failed to load config
-[ERROR] Out of memory
-```
-
-#### Bonus Goals
-- [ ] `-i` flag: Case-insensitive search.
-- [ ] `-n` flag: Show line numbers.
-- [ ] Support regex patterns (use `regex` crate).
-
----
-
-### Task 3: `find` – Recursively Find Files by Name
-
-- [ ] Recursively walk a given directory.
-- [ ] Print all files whose names exactly match the input.
-
-**Example:**
-```bash
-my_find ./src main.rs
-```
-
-**Example Output:**
-```
-./src/main.rs
-./src/bin/main.rs
-```
-
-#### Bonus Goals
-- [ ] Filter by file extension (e.g. `.rs`, `.txt`).
-- [ ] Match by partial name or regex.
-- [ ] `-d` flag: Include directories in results.
-- [ ] Use multi-threading for traversal speed-up (optional).
+### Bonus 5: UX Enhancements
+- [ ] Responsive layout and animations.
+- [ ] Use toast messages for actions (e.g., task created, deleted).
