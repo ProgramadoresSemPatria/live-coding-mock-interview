@@ -1,0 +1,145 @@
+[
+  {
+    "id": "general-knowledge",
+    "title": "General Knowledge",
+    "description": "A mix of general trivia questions.",
+    "questions": [
+      {
+        "question": "What is the capital of Australia?",
+        "options": ["Sydney", "Melbourne", "Canberra", "Perth"],
+        "correctAnswer": "Canberra"
+      },
+      {
+        "question": "Which language has the most native speakers?",
+        "options": ["English", "Mandarin Chinese", "Hindi", "Spanish"],
+        "correctAnswer": "Mandarin Chinese"
+      },
+      {
+        "question": "What year did World War II end?",
+        "options": ["1942", "1945", "1939", "1950"],
+        "correctAnswer": "1945"
+      },
+      {
+        "question": "How many continents are there?",
+        "options": ["5", "6", "7", "8"],
+        "correctAnswer": "7"
+      },
+      {
+        "question": "Who painted the Mona Lisa?",
+        "options": ["Vincent van Gogh", "Leonardo da Vinci", "Michelangelo", "Pablo Picasso"],
+        "correctAnswer": "Leonardo da Vinci"
+      }
+    ]
+  },
+  {
+    "id": "tech-trivia",
+    "title": "Tech & Programming",
+    "description": "Test your tech knowledge!",
+    "questions": [
+      {
+        "question": "What does HTTP stand for?",
+        "options": ["HyperText Transfer Protocol", "HyperType Text Platform", "High Transfer Text Protocol", "Hyper Transfer Tunneling Protocol"],
+        "correctAnswer": "HyperText Transfer Protocol"
+      },
+      {
+        "question": "Which company created the React library?",
+        "options": ["Google", "Facebook", "Microsoft", "Twitter"],
+        "correctAnswer": "Facebook"
+      },
+      {
+        "question": "What does JSON stand for?",
+        "options": ["JavaScript Object Notation", "Java System Object Network", "Just Some Old Notation", "Java Structured Output Name"],
+        "correctAnswer": "JavaScript Object Notation"
+      },
+      {
+        "question": "Which of the following is a statically typed language?",
+        "options": ["Python", "JavaScript", "TypeScript", "Ruby"],
+        "correctAnswer": "TypeScript"
+      },
+      {
+        "question": "What does CSS stand for?",
+        "options": ["Creative Style System", "Cascading Style Sheets", "Code Styling Standard", "Computer Style Syntax"],
+        "correctAnswer": "Cascading Style Sheets"
+      },
+      {
+        "question": "What is the value of `typeof null` in JavaScript?",
+        "options": ["null", "undefined", "object", "function"],
+        "correctAnswer": "object"
+      },
+      {
+        "question": "Which HTTP method is used to update existing data?",
+        "options": ["GET", "POST", "PUT", "DELETE"],
+        "correctAnswer": "PUT"
+      }
+    ]
+  },
+  {
+    "id": "geography",
+    "title": "World Geography",
+    "description": "How well do you know the world?",
+    "questions": [
+      {
+        "question": "Which river is the longest in the world?",
+        "options": ["Amazon", "Yangtze", "Mississippi", "Nile"],
+        "correctAnswer": "Nile"
+      },
+      {
+        "question": "What is the smallest country in the world?",
+        "options": ["San Marino", "Liechtenstein", "Vatican City", "Monaco"],
+        "correctAnswer": "Vatican City"
+      },
+      {
+        "question": "Mount Everest lies in which mountain range?",
+        "options": ["Andes", "Rockies", "Himalayas", "Alps"],
+        "correctAnswer": "Himalayas"
+      },
+      {
+        "question": "Which country has the most islands?",
+        "options": ["Canada", "Indonesia", "Sweden", "Philippines"],
+        "correctAnswer": "Sweden"
+      },
+      {
+        "question": "Which two continents are entirely in the Southern Hemisphere?",
+        "options": ["Australia and Antarctica", "Africa and South America", "Australia and South America", "Antarctica and Africa"],
+        "correctAnswer": "Australia and Antarctica"
+      }
+    ]
+  },
+  {
+    "id": "pop-culture",
+    "title": "Pop Culture",
+    "description": "Movies, music, and media!",
+    "questions": [
+      {
+        "question": "Who directed 'Inception'?",
+        "options": ["Steven Spielberg", "Christopher Nolan", "James Cameron", "Martin Scorsese"],
+        "correctAnswer": "Christopher Nolan"
+      },
+      {
+        "question": "Which pop star is known as 'Queen Bey'?",
+        "options": ["Beyoncé", "Rihanna", "Ariana Grande", "Taylor Swift"],
+        "correctAnswer": "Beyoncé"
+      },
+      {
+        "question": "Which TV series features a coffee shop called Central Perk?",
+        "options": ["Friends", "How I Met Your Mother", "The Office", "Seinfeld"],
+        "correctAnswer": "Friends"
+      },
+      {
+        "question": "In what year was the first iPhone released?",
+        "options": ["2005", "2006", "2007", "2008"],
+        "correctAnswer": "2007"
+      },
+      {
+        "question": "What movie features the quote, 'I’ll be back'?",
+        "options": ["The Matrix", "Terminator", "RoboCop", "Predator"],
+        "correctAnswer": "Terminator"
+      },
+      {
+        "question": "Which game holds the title of the best-selling video game of all time?",
+        "options": ["GTA V", "Minecraft", "Tetris", "Mario Kart 8"],
+        "correctAnswer": "Minecraft"
+      }
+    ]
+  }
+]
