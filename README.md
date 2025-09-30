@@ -1,59 +1,107 @@
-# Live Coding Mock Interview 11 – Simple Kahoot Clone (JavaScript/TypeScript/React)
-Build a single-player, Kahoot-inspired quiz application using **React + Javascript/TypeScript**. This challenge evaluates your ability to work with dynamic data, conditional rendering, UI state management, and component composition.
+# Live Coding Mock Interview 12 – DevOps Q&A & Practical Challenge
 
-You will consume a JSON file simulating a backend containing multiple quizzes. The user will select one quiz and go through its questions one by one, receiving instant feedback and a final score.
+This interview has four sections:  
+1. **Q&A Part 1 (5 min)** – Fundamentals  
+2. **Q&A Part 2 (10 min)** – Tradeoffs  
+3. **Q&A Part 3 (15 min)** – Open-ended scenarios  
+4. **Practical Exercise (20 min)** – Terraform challenge (pseudo-code)
 
-## 🎯 Objective
+---
 
-Create an interactive quiz app where the user can:
-- Choose a quiz
-- Answer multiple-choice questions
-- See immediate feedback (right or wrong)
-- View their final score and optionally restart
+## Q&A Part 1 – Fundamentals
 
-Use clean, modular, and typed (optional) React code. Keep the interface simple and usable. You may use basic CSS, CSS modules, or a utility library like Tailwind.
+<details>
+<summary>Question 1</summary>
+What’s the difference between a Kubernetes Deployment and a StatefulSet?
+</details>
 
-## 🛠 Base Requirements
+<details>
+<summary>Question 2</summary>
+What’s the purpose of a Terraform state file?
+</details>
 
-### Task 1: Load Quizzes
-- [ ] Load the quizzes from a `quizzes.json` file.
-- [ ] Display a list of available quizzes (title and description).
-- [ ] Allow the user to select one to begin.
+<details>
+<summary>Question 3</summary>
+In GitHub Actions, what’s the difference between <code>workflow_dispatch</code> and <code>push</code> triggers?
+</details>
 
-### Task 2: Quiz Question Flow
-- [ ] Display the current question and multiple-choice options.
-- [ ] When the user selects an option:
-  - Show if it was correct or incorrect
-  - Highlight the correct answer
-  - Disable further selections
-- [ ] Provide a "Next" or "Finish" button to continue.
+<details>
+<summary>Question 4</summary>
+In Grafana, what’s the role of Prometheus vs Loki?
+</details>
 
-### Task 3: Final Score
-- [ ] After the last question, show the user's score (e.g., "7 out of 10 correct").
-- [ ] Provide a "Restart" or "Back to quiz selection" button.
+<details>
+<summary>Question 5</summary>
+What’s the difference between Docker Swarm and Kubernetes?
+</details>
 
-### Task 4: Component Structure
-- [ ] Use modular React components (e.g., QuizSelector, Quiz, QuestionCard, ScoreView).
-- [ ] Use `useState` or `useReducer` to manage quiz state.
+---
 
-## ✨ Bonus Goals
+## Q&A Part 2 – Tradeoffs
 
-### Bonus 1: Progress Indicator
-- [ ] Show quiz progress (e.g., "Question 3 of 10" or a visual progress bar).
+<details>
+<summary>Question 1</summary>
+Multi-Cloud: One central Kubernetes cluster vs multiple smaller distributed clusters
+</details>
 
-### Bonus 2: Timer
-- [ ] Add a countdown timer per question (e.g., 15 seconds).
-- [ ] If time runs out, disable answer selection and highlight the correct answer.
+<details>
+<summary>Question 2</summary>
+CI/CD Hosting: Self-managed vs third-party managed pipelines
+</details>
 
-### Bonus 3: Answer Review
-- [ ] At the end of the quiz, show which questions were missed and the correct answers.
+<details>
+<summary>Question 3</summary>
+Infrastructure: Terraform only vs Terraform + Terragrunt
+</details>
 
-### Bonus 4: Shuffle Options
-- [ ] Randomize the order of options for each question.
+<details>
+<summary>Question 4</summary>
+Monitoring: Push vs Pull metrics collection
+</details>
 
-### Bonus 5: Basic Animations
-- [ ] Add fade/slide animations between question transitions.
+---
 
-## 📁 Data File
+## Q&A Part 3 – Open-ended scenarios
 
-Use the provided `quizzes.json` file as your quiz database. You can read the file directly from the frontend.
+<details>
+<summary>Question 1</summary>
+Blockchain Ops: How would you design HA and monitoring for EVM validators across AWS & GCP?
+</details>
+
+<details>
+<summary>Question 2</summary>
+Monitoring: In your company, Grafana dashboards are performing slowly with Prometheus, how do you troubleshoot and fix it?
+</details>
+
+<details>
+<summary>Question 3</summary>
+Incident Response: ArgoCD deploys a broken manifest — how do you detect, roll back, and prevent it?
+</details>
+
+<details>
+<summary>Question 4</summary>
+Cloud Strategy: What would you consider before migrating workloads from AWS to Azure? 
+</details>
+
+<details>
+<summary>Question 5</summary>
+Scalability: How do you scale infra from 10k to 1M daily users?
+</details>
+
+---
+
+## Practical Exercise (20 min)
+
+**Challenge:**  
+Write a Terraform configuration (pseudo-code) that:  
+1. Creates a **VPC** with 2 public and 2 private subnets in AWS.  
+2. Launches an **EC2 instance** in a private subnet.  
+3. Creates a **security group** that allows:  
+   - inbound SSH only from your IP  
+   - inbound HTTP from anywhere  
+4. Outputs the instance’s private IP.  
+
+**Notes:**  
+- Encourage variables for CIDRs, regions, instance types.  
+- Organize as if reusable module.  
+- Candidate should explain production improvements (remote state, Terragrunt, tagging, modules).  
