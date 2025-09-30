@@ -90,7 +90,7 @@ Scalability: How do you scale infra from 10k to 1M daily users?
 
 ---
 
-## Practical Exercise (20 min)
+## Practical Exercise
 
 **Challenge:**  
 Write a Terraform configuration (pseudo-code) that:  
