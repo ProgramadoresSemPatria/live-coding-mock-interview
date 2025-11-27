@@ -1,107 +1,35 @@
-# Live Coding Mock Interview 12 – DevOps Q&A & Practical Challenge
+# Live Coding Mock Interview 13 – Mini Flashcard Maker
 
-This interview has four sections:  
-1. **Q&A Part 1 (5 min)** – Fundamentals  
-2. **Q&A Part 2 (10 min)** – Tradeoffs  
-3. **Q&A Part 3 (15 min)** – Open-ended scenarios  
-4. **Practical Exercise (20 min)** – Terraform challenge (pseudo-code)
+This application allows users to create and study simple flashcards. Each flashcard contains a question and an answer, and users can flip cards to reveal or hide the answer. The app should make it easy to add new flashcards, view the list of existing ones, and interact with each card individually.
 
----
+## 🔧 Functional Requirements
+### 1. Create Flashcards
+- [ ] Users must be able to add a new flashcard.
+- [ ] Each flashcard must contain:
+  - [ ] A question
+  - [ ] An answer
+- [ ] Newly created flashcards should appear immediately in the list.
 
-## Q&A Part 1 – Fundamentals
+### 2. Display Flashcards
+- [ ] The application should list all created flashcards.
+- [ ] Each flashcard must show the question by default.
+- [ ] Users should be able to toggle the answer (show/hide).
 
-<details>
-<summary>Question 1</summary>
-What’s the difference between a Kubernetes Deployment and a StatefulSet?
-</details>
+### 3. State Persistence (In Memory)
+- [ ] Flashcards only need to be stored in memory during runtime.
+- [ ] No database or external storage is required.
 
-<details>
-<summary>Question 2</summary>
-What’s the purpose of a Terraform state file?
-</details>
-
-<details>
-<summary>Question 3</summary>
-In GitHub Actions, what’s the difference between <code>workflow_dispatch</code> and <code>push</code> triggers?
-</details>
-
-<details>
-<summary>Question 4</summary>
-In Grafana, what’s the role of Prometheus vs Loki?
-</details>
-
-<details>
-<summary>Question 5</summary>
-What’s the difference between Docker Swarm and Kubernetes?
-</details>
-
----
-
-## Q&A Part 2 – Tradeoffs
-
-<details>
-<summary>Question 1</summary>
-Multi-Cloud: One central Kubernetes cluster vs multiple smaller distributed clusters
-</details>
-
-<details>
-<summary>Question 2</summary>
-CI/CD Hosting: Self-managed vs third-party managed pipelines
-</details>
-
-<details>
-<summary>Question 3</summary>
-Infrastructure: Terraform only vs Terraform + Terragrunt
-</details>
-
-<details>
-<summary>Question 4</summary>
-Monitoring: Push vs Pull metrics collection
-</details>
-
----
-
-## Q&A Part 3 – Open-ended scenarios
-
-<details>
-<summary>Question 1</summary>
-Blockchain Ops: How would you design HA and monitoring for EVM validators across AWS & GCP?
-</details>
-
-<details>
-<summary>Question 2</summary>
-Monitoring: In your company, Grafana dashboards are performing slowly with Prometheus, how do you troubleshoot and fix it?
-</details>
-
-<details>
-<summary>Question 3</summary>
-Incident Response: ArgoCD deploys a broken manifest — how do you detect, roll back, and prevent it?
-</details>
-
-<details>
-<summary>Question 4</summary>
-Cloud Strategy: What would you consider before migrating workloads from AWS to Azure? 
-</details>
-
-<details>
-<summary>Question 5</summary>
-Scalability: How do you scale infra from 10k to 1M daily users?
-</details>
-
----
-
-## Practical Exercise
-
-**Challenge:**  
-Write a Terraform configuration (pseudo-code) that:  
-1. Creates a **VPC** with 2 public and 2 private subnets in AWS.  
-2. Launches an **EC2 instance** in a private subnet.  
-3. Creates a **security group** that allows:  
-   - inbound SSH only from your IP  
-   - inbound HTTP from anywhere  
-4. Outputs the instance’s private IP.  
-
-**Notes:**  
-- Encourage variables for CIDRs, regions, instance types.  
-- Organize as if reusable module.  
-- Candidate should explain production improvements (remote state, Terragrunt, tagging, modules).  
+### ⭐ Bonus Requirements
+- [ ] Delete Flashcards
+  - [ ] Allow users to remove a flashcard from the list.
+- [ ] Edit Flashcards
+  - [ ] Provide a way to modify an existing flashcard’s question and/or answer.
+- [ ] Categories
+  - [ ] Enable users to assign each flashcard to a category and filter by category.
+- [ ] Study Mode
+  - [ ] Add a dedicated view that:
+    - [ ] Shows cards one at a time
+    - [ ] Allows flipping the card
+    - [ ] Moves to the next/previous card
+- [ ] Local Persistence
+  - [ ] Save flashcards so they remain available after restarting the app (e.g., local browser storage or simple file-based storage).
