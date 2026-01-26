@@ -1,35 +1,77 @@
-# Live Coding Mock Interview 13 – Mini Flashcard Maker
+# Live Coding Mock Interview 14 – Simple Expense Tracker
 
-This application allows users to create and study simple flashcards. Each flashcard contains a question and an answer, and users can flip cards to reveal or hide the answer. The app should make it easy to add new flashcards, view the list of existing ones, and interact with each card individually.
+This challenge consists of building a small React + TypeScript application that allows users to manage a list of expenses. The goal is to evaluate core React fundamentals such as state management, controlled forms, list rendering, and basic TypeScript usage.
+
+The application does **not** need styling beyond basic HTML elements. Focus on functionality and clarity rather than visual design.
+
+---
 
 ## 🔧 Functional Requirements
-### 1. Create Flashcards
-- [ ] Users must be able to add a new flashcard.
-- [ ] Each flashcard must contain:
-  - [ ] A question
-  - [ ] An answer
-- [ ] Newly created flashcards should appear immediately in the list.
 
-### 2. Display Flashcards
-- [ ] The application should list all created flashcards.
-- [ ] Each flashcard must show the question by default.
-- [ ] Users should be able to toggle the answer (show/hide).
+### 1. Expense Model
 
-### 3. State Persistence (In Memory)
-- [ ] Flashcards only need to be stored in memory during runtime.
-- [ ] No database or external storage is required.
+* Each expense represents a single monetary entry.
+* An expense contains:
 
-### ⭐ Bonus Requirements
-- [ ] Delete Flashcards
-  - [ ] Allow users to remove a flashcard from the list.
-- [ ] Edit Flashcards
-  - [ ] Provide a way to modify an existing flashcard’s question and/or answer.
-- [ ] Categories
-  - [ ] Enable users to assign each flashcard to a category and filter by category.
-- [ ] Study Mode
-  - [ ] Add a dedicated view that:
-    - [ ] Shows cards one at a time
-    - [ ] Allows flipping the card
-    - [ ] Moves to the next/previous card
-- [ ] Local Persistence
-  - [ ] Save flashcards so they remain available after restarting the app (e.g., local browser storage or simple file-based storage).
+  * A unique identifier
+  * A short description
+  * A numeric amount
+
+---
+
+### 2. Display Expenses
+
+* The application should display a list of existing expenses.
+* Each expense should clearly show its description and amount.
+
+---
+
+### 3. Add New Expenses
+
+* Users should be able to add a new expense using a form.
+* The form should allow entering:
+
+  * A description
+  * An amount
+* After submission, the new expense should appear in the list.
+
+---
+
+### 4. Remove Expenses
+
+* Users should be able to remove an existing expense from the list.
+
+---
+
+### 5. Total Calculation
+
+* The application should display the total sum of all expenses.
+* The total should always reflect the current list of expenses.
+
+---
+
+## 🧠 Technical Constraints
+
+* Use React with function components
+* Use React hooks for state management
+* Use TypeScript
+* No backend or database is required (in-memory only)
+
+---
+
+## ⭐ Bonus Requirements (Optional)
+
+These are only required if time allows.
+
+* Allow editing an existing expense
+* Add basic validation (e.g. empty description, invalid amount)
+* Add filtering or sorting of expenses
+* Persist expenses between page reloads (for example, using local storage)
+
+---
+
+## 📝 Notes for the Candidate
+
+* Focus on correctness and clear structure.
+* You may look up documentation online.
+* Please explain your thought process as you work.
