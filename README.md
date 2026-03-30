@@ -1,77 +1,66 @@
-# Live Coding Mock Interview 14 – Simple Expense Tracker
+# Live Coding Mock Interview 15 – Task Management API
 
-This challenge consists of building a small React + TypeScript application that allows users to manage a list of expenses. The goal is to evaluate core React fundamentals such as state management, controlled forms, list rendering, and basic TypeScript usage.
+This challenge consists of implementing a small backend API using Python (FastAPI or Flask) to manage a list of tasks.
 
-The application does **not** need styling beyond basic HTML elements. Focus on functionality and clarity rather than visual design.
+The goal is to evaluate core backend fundamentals such as API design, data modeling, request validation, and code organization. The candidate will start from a minimal pre-configured project to avoid setup overhead.
 
----
+The application does not need authentication, database integration, or advanced architecture. Focus on correctness, clarity, and reasoning rather than completeness.
 
 ## 🔧 Functional Requirements
+### 1. Task Model
 
-### 1. Expense Model
+Each task represents a unit of work.
 
-* Each expense represents a single monetary entry.
-* An expense contains:
+A task should contain:
+- A unique identifier
+- A title (string)
+- A completion status (boolean)
 
-  * A unique identifier
-  * A short description
-  * A numeric amount
+### 2. Create Tasks
+Implement an endpoint to create a new task.
+- The request should include a title.
+- The created task should be returned in the response.
 
----
+### 3. List Tasks
+- Implement an endpoint to retrieve all tasks.
+- The response should return a list of tasks.
 
-### 2. Display Expenses
+### 4. Update Task Status
+- Implement an endpoint to update a task’s completion status.
+- The user should be able to mark a task as completed or not completed.
 
-* The application should display a list of existing expenses.
-* Each expense should clearly show its description and amount.
-
----
-
-### 3. Add New Expenses
-
-* Users should be able to add a new expense using a form.
-* The form should allow entering:
-
-  * A description
-  * An amount
-* After submission, the new expense should appear in the list.
-
----
-
-### 4. Remove Expenses
-
-* Users should be able to remove an existing expense from the list.
-
----
-
-### 5. Total Calculation
-
-* The application should display the total sum of all expenses.
-* The total should always reflect the current list of expenses.
-
----
+### 5. Delete Tasks
+- Implement an endpoint to delete a task by its identifier.
+- The task should be removed from the in-memory store.
 
 ## 🧠 Technical Constraints
-
-* Use React with function components
-* Use React hooks for state management
-* Use TypeScript
-* No backend or database is required (in-memory only)
-
----
+- Use Python with either FastAPI or Flask
+- Store data in memory (no database required)
+- Keep the implementation simple and focused
+- You may use standard libraries or lightweight dependencies if needed
 
 ## ⭐ Bonus Requirements (Optional)
 
 These are only required if time allows.
-
-* Allow editing an existing expense
-* Add basic validation (e.g. empty description, invalid amount)
-* Add filtering or sorting of expenses
-* Persist expenses between page reloads (for example, using local storage)
-
----
+- Add request validation (e.g. empty title, invalid inputs)
+- Implement filtering (e.g. list only completed or pending tasks)
+- Improve error handling (clear status codes and messages)
+- Structure the code into layers (routes, services, models)
+- Add simple tests for the endpoints
+- Discuss or sketch how this would scale with a real database
 
 ## 📝 Notes for the Candidate
+- Focus on writing clean, readable, and maintainable code
+- You may ask clarifying questions at any time
+- You are encouraged to explain your thought process while coding
+- It is okay to make assumptions—just communicate them clearly
+- If you get stuck, talk through your approach
 
-* Focus on correctness and clear structure.
-* You may look up documentation online.
-* Please explain your thought process as you work.
+## 🎯 Evaluation Criteria
+
+You will be evaluated based on:
+- Correctness – Does the implementation meet the requirements?
+- Code Quality – Is the code clean, organized, and readable?
+- API Design – Are endpoints and data structures well designed?
+- Problem Solving – How do you approach and break down the problem?
+- Communication – Do you clearly explain your decisions and tradeoffs?
