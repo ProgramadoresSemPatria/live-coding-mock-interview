@@ -1,0 +1,122 @@
+[
+  {
+    "id": 1,
+    "title": "Inception",
+    "genre": "Sci-Fi",
+    "year": 2010,
+    "rating": 8.8,
+    "durationMinutes": 148
+  },
+  {
+    "id": 2,
+    "title": "The Dark Knight",
+    "genre": "Action",
+    "year": 2008,
+    "rating": 9.0,
+    "durationMinutes": 152
+  },
+  {
+    "id": 3,
+    "title": "Interstellar",
+    "genre": "Sci-Fi",
+    "year": 2014,
+    "rating": 8.7,
+    "durationMinutes": 169
+  },
+  {
+    "id": 4,
+    "title": "Parasite",
+    "genre": "Thriller",
+    "year": 2019,
+    "rating": 8.5,
+    "durationMinutes": 132
+  },
+  {
+    "id": 5,
+    "title": "Whiplash",
+    "genre": "Drama",
+    "year": 2014,
+    "rating": 8.5,
+    "durationMinutes": 106
+  },
+  {
+    "id": 6,
+    "title": "The Matrix",
+    "genre": "Sci-Fi",
+    "year": 1999,
+    "rating": 8.7,
+    "durationMinutes": 136
+  },
+  {
+    "id": 7,
+    "title": "Spider-Man: Into the Spider-Verse",
+    "genre": "Animation",
+    "year": 2018,
+    "rating": 8.4,
+    "durationMinutes": 117
+  },
+  {
+    "id": 8,
+    "title": "The Social Network",
+    "genre": "Drama",
+    "year": 2010,
+    "rating": 7.8,
+    "durationMinutes": 120
+  },
+  {
+    "id": 9,
+    "title": "Mad Max: Fury Road",
+    "genre": "Action",
+    "year": 2015,
+    "rating": 8.1,
+    "durationMinutes": 120
+  },
+  {
+    "id": 10,
+    "title": "Arrival",
+    "genre": "Sci-Fi",
+    "year": 2016,
+    "rating": 7.9,
+    "durationMinutes": 116
+  },
+  {
+    "id": 11,
+    "title": "La La Land",
+    "genre": "Musical",
+    "year": 2016,
+    "rating": 8.0,
+    "durationMinutes": 128
+  },
+  {
+    "id": 12,
+    "title": "The Grand Budapest Hotel",
+    "genre": "Comedy",
+    "year": 2014,
+    "rating": 8.1,
+    "durationMinutes": 99
+  },
+  {
+    "id": 13,
+    "title": "Dune",
+    "genre": "Sci-Fi",
+    "year": 2021,
+    "rating": 8.0,
+    "durationMinutes": 155
+  },
+  {
+    "id": 14,
+    "title": "Everything Everywhere All at Once",
+    "genre": "Adventure",
+    "year": 2022,
+    "rating": 7.8,
+    "durationMinutes": 139
+  },
+  {
+    "id": 15,
+    "title": "Top Gun: Maverick",
+    "genre": "Action",
+    "year": 2022,
+    "rating": 8.2,
+    "durationMinutes": 130
+  }
+]

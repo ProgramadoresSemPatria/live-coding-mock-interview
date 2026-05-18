@@ -1,66 +1,97 @@
-# Live Coding Mock Interview 15 – Task Management API
+# Live Coding Mock Interview 16 – Movie Explorer App
 
-This challenge consists of implementing a small backend API using Python (FastAPI or Flask) to manage a list of tasks.
+This challenge consists of implementing a small frontend application using JavaScript or TypeScript to browse and search a movie catalog.
 
-The goal is to evaluate core backend fundamentals such as API design, data modeling, request validation, and code organization. The candidate will start from a minimal pre-configured project to avoid setup overhead.
+The goal is to evaluate core frontend fundamentals such as component design, state management, asynchronous data handling, filtering logic, and code organization.
 
-The application does not need authentication, database integration, or advanced architecture. Focus on correctness, clarity, and reasoning rather than completeness.
+The candidate will start from a minimal pre-configured project to avoid setup overhead.
+
+The application does not require authentication, backend development, routing, or advanced architecture. Focus on correctness, clarity, and reasoning rather than completeness.
 
 ## 🔧 Functional Requirements
-### 1. Task Model
 
-Each task represents a unit of work.
+### 1. Load Movie Data
 
-A task should contain:
-- A unique identifier
-- A title (string)
-- A completion status (boolean)
+The application should load movie data asynchronously from the provided `movies.json` file.
 
-### 2. Create Tasks
-Implement an endpoint to create a new task.
-- The request should include a title.
-- The created task should be returned in the response.
+Each movie contains:
+- An identifier
+- A title
+- A genre
+- A release year
+- A rating
+- A duration in minutes
 
-### 3. List Tasks
-- Implement an endpoint to retrieve all tasks.
-- The response should return a list of tasks.
+### 2. Display Movies
 
-### 4. Update Task Status
-- Implement an endpoint to update a task’s completion status.
-- The user should be able to mark a task as completed or not completed.
+Render the movie catalog in a clean and readable way.
 
-### 5. Delete Tasks
-- Implement an endpoint to delete a task by its identifier.
-- The task should be removed from the in-memory store.
+Each movie item should display at least:
+- Title
+- Genre
+- Year
+- Rating
+
+### 3. Search Movies
+
+Implement a search input that allows users to filter movies by title.
+
+Search behavior should:
+- Update results dynamically as the user types
+- Be case-insensitive
+
+### 4. Filter by Genre
+
+Allow users to filter movies by genre.
+
+The user should be able to:
+- Select a genre
+- View only movies matching that genre
+- Clear the filter to see all movies again
+
+### 5. Loading and Empty States
+
+The application should handle:
+- A loading state while data is being fetched
+- An empty state when no movies match the current filters
 
 ## 🧠 Technical Constraints
-- Use Python with either FastAPI or Flask
-- Store data in memory (no database required)
+
+- Use JavaScript or TypeScript
+- Use React (preferred) or another modern frontend framework
+- Store data in memory only
 - Keep the implementation simple and focused
-- You may use standard libraries or lightweight dependencies if needed
+- Styling is optional and does not need to be polished
 
 ## ⭐ Bonus Requirements (Optional)
 
 These are only required if time allows.
-- Add request validation (e.g. empty title, invalid inputs)
-- Implement filtering (e.g. list only completed or pending tasks)
-- Improve error handling (clear status codes and messages)
-- Structure the code into layers (routes, services, models)
-- Add simple tests for the endpoints
-- Discuss or sketch how this would scale with a real database
+
+- Add debounced search
+- Add sorting (e.g. by rating or year)
+- Persist filters using localStorage
+- Add pagination or infinite scrolling
+- Extract reusable hooks/components
+- Improve accessibility and keyboard navigation
+- Add unit tests for components or filtering logic
+- Discuss how this would scale with a real API
 
 ## 📝 Notes for the Candidate
+
 - Focus on writing clean, readable, and maintainable code
 - You may ask clarifying questions at any time
 - You are encouraged to explain your thought process while coding
 - It is okay to make assumptions—just communicate them clearly
 - If you get stuck, talk through your approach
+- Prioritize functionality over visual polish
 
 ## 🎯 Evaluation Criteria
 
 You will be evaluated based on:
+
 - Correctness – Does the implementation meet the requirements?
 - Code Quality – Is the code clean, organized, and readable?
-- API Design – Are endpoints and data structures well designed?
+- State Management – Is the application state handled clearly and predictably?
+- UX Awareness – Are loading, empty, and filtering states handled properly?
 - Problem Solving – How do you approach and break down the problem?
 - Communication – Do you clearly explain your decisions and tradeoffs?
