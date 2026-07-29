@@ -1,64 +1,54 @@
-# Live Coding Mock Interview 16 – Movie Explorer App
+# Live Coding Mock Interview 17 – Notes App
 
-This challenge consists of implementing a small frontend application using JavaScript or TypeScript to browse and search a movie catalog.
+This challenge consists of implementing a small full-stack Notes application using React for the frontend and either Python or .NET for the backend.
 
-The goal is to evaluate core frontend fundamentals such as component design, state management, asynchronous data handling, filtering logic, and code organization.
+The goal is to evaluate core full-stack fundamentals such as API design, state management, CRUD operations, component organization, and code quality.
 
-The candidate will start from a minimal pre-configured project to avoid setup overhead.
+The candidate will start from minimal pre-configured frontend and backend projects to avoid setup overhead.
 
-The application does not require authentication, backend development, routing, or advanced architecture. Focus on correctness, clarity, and reasoning rather than completeness.
+The application does not require authentication, databases, or advanced architecture. Store data in memory only and focus on correctness, clarity, and reasoning rather than completeness.
 
 ## 🔧 Functional Requirements
 
-### 1. Load Movie Data
+### 1. List Notes
 
-The application should load movie data asynchronously from the provided `movies.json` file.
+Display all existing notes retrieved from the backend.
 
-Each movie contains:
-- An identifier
-- A title
-- A genre
-- A release year
-- A rating
-- A duration in minutes
-
-### 2. Display Movies
-
-Render the movie catalog in a clean and readable way.
-
-Each movie item should display at least:
+Each note contains:
+- Identifier
 - Title
-- Genre
-- Year
-- Rating
+- Content
+- Last updated timestamp
 
-### 3. Search Movies
+### 2. Create Notes
 
-Implement a search input that allows users to filter movies by title.
+Allow users to create a new note by providing:
+- Title
+- Content
 
-Search behavior should:
-- Update results dynamically as the user types
-- Be case-insensitive
+After creation, the note should immediately appear in the list.
 
-### 4. Filter by Genre
+### 3. Edit Notes
 
-Allow users to filter movies by genre.
+Users should be able to update both the title and content of an existing note.
 
-The user should be able to:
-- Select a genre
-- View only movies matching that genre
-- Clear the filter to see all movies again
+The updated timestamp should reflect the latest modification.
 
-### 5. Loading and Empty States
+### 4. Delete Notes
 
-The application should handle:
-- A loading state while data is being fetched
-- An empty state when no movies match the current filters
+Allow users to delete a note.
+
+The UI should update immediately after successful deletion.
+
+### 5. Empty State
+
+Display a friendly message when there are no notes available.
 
 ## 🧠 Technical Constraints
 
-- Use JavaScript or TypeScript
-- Use React (preferred) or another modern frontend framework
+- Backend: Python or .NET
+- Frontend: React
+- Expose a simple REST API
 - Store data in memory only
 - Keep the implementation simple and focused
 - Styling is optional and does not need to be polished
@@ -67,14 +57,13 @@ The application should handle:
 
 These are only required if time allows.
 
-- Add debounced search
-- Add sorting (e.g. by rating or year)
-- Persist filters using localStorage
-- Add pagination or infinite scrolling
-- Extract reusable hooks/components
-- Improve accessibility and keyboard navigation
-- Add unit tests for components or filtering logic
-- Discuss how this would scale with a real API
+- Search notes by title
+- Sort notes by last updated
+- Auto-save edits
+- Persist data using SQLite or a lightweight database
+- Extract reusable React components
+- Add basic unit tests
+- Discuss how the application would scale in production
 
 ## 📝 Notes for the Candidate
 
@@ -91,7 +80,7 @@ You will be evaluated based on:
 
 - Correctness – Does the implementation meet the requirements?
 - Code Quality – Is the code clean, organized, and readable?
-- State Management – Is the application state handled clearly and predictably?
-- UX Awareness – Are loading, empty, and filtering states handled properly?
+- API Design – Are the endpoints clear and appropriate?
+- State Management – Is frontend state handled clearly and predictably?
 - Problem Solving – How do you approach and break down the problem?
 - Communication – Do you clearly explain your decisions and tradeoffs?
