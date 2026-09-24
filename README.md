@@ -1,86 +1,206 @@
-# Live Coding Mock Interview 17 – Notes App
+# Live Coding Mock Interview 18 – Task Queue API
 
-This challenge consists of implementing a small full-stack Notes application using React for the frontend and either Python or .NET for the backend.
+This challenge consists of implementing a small backend service for submitting and processing asynchronous tasks using TypeScript.
 
-The goal is to evaluate core full-stack fundamentals such as API design, state management, CRUD operations, component organization, and code quality.
+The goal is to evaluate senior-level backend fundamentals such as API design, TypeScript usage, asynchronous programming, state management, error handling, code organization, and engineering judgment.
 
-The candidate will start from minimal pre-configured frontend and backend projects to avoid setup overhead.
+The candidate will start from a minimal pre-configured TypeScript project to avoid setup overhead.
 
-The application does not require authentication, databases, or advanced architecture. Store data in memory only and focus on correctness, clarity, and reasoning rather than completeness.
+The application does not require authentication, a database, or external infrastructure. Store data in memory only and focus on correctness, clarity, and reasoning rather than completeness.
 
 ## 🔧 Functional Requirements
 
-### 1. List Notes
+### 1. Create a Job
 
-Display all existing notes retrieved from the backend.
+Provide an endpoint for submitting a new job.
 
-Each note contains:
+Example request:
+
+```http
+POST /jobs
+Content-Type: application/json
+
+{
+  "type": "email",
+  "payload": {
+    "to": "alice@example.com",
+    "subject": "Welcome!"
+  }
+}
+```
+
+Each job should contain at least:
+
 - Identifier
-- Title
-- Content
-- Last updated timestamp
+- Type
+- Payload
+- Status
+- Creation timestamp
 
-### 2. Create Notes
+A newly created job should start with a `pending` status.
 
-Allow users to create a new note by providing:
-- Title
-- Content
+### 2. Get a Job
 
-After creation, the note should immediately appear in the list.
+Provide an endpoint for retrieving a job by its identifier.
 
-### 3. Edit Notes
+Example:
 
-Users should be able to update both the title and content of an existing note.
+```http
+GET /jobs/:id
+```
 
-The updated timestamp should reflect the latest modification.
+The response should include the current job status.
 
-### 4. Delete Notes
+Possible statuses:
 
-Allow users to delete a note.
+```text
+pending
+processing
+completed
+failed
+```
 
-The UI should update immediately after successful deletion.
+### 3. Process Jobs
 
-### 5. Empty State
+Jobs should be processed asynchronously after they are created.
 
-Display a friendly message when there are no notes available.
+For this exercise, the actual processing can be simulated rather than performing a real operation.
+
+For example, an email job could simply wait for a short period and then complete successfully.
+
+The job status should transition appropriately:
+
+```text
+pending → processing → completed
+```
+
+If processing fails:
+
+```text
+pending → processing → failed
+```
+
+### 4. List Jobs
+
+Provide an endpoint for retrieving existing jobs.
+
+Example:
+
+```http
+GET /jobs
+```
+
+The response should contain the jobs currently stored by the application.
+
+### 5. Error Handling
+
+The API should handle common invalid requests appropriately.
+
+Examples include:
+
+- Attempting to retrieve a job that does not exist
+- Missing required fields when creating a job
+- Invalid job types
+- Invalid request payloads
 
 ## 🧠 Technical Constraints
 
-- Backend: Python or .NET
-- Frontend: React
+- Language: TypeScript
+- Runtime: Node.js
 - Expose a simple REST API
 - Store data in memory only
+- No database is required
+- No authentication is required
+- Job processing can be simulated
 - Keep the implementation simple and focused
-- Styling is optional and does not need to be polished
+- Use asynchronous programming appropriately
+- Avoid unnecessary dependencies or architecture
 
-## ⭐ Bonus Requirements (Optional)
+The candidate is free to choose the HTTP framework and supporting libraries.
 
-These are only required if time allows.
+## ⭐ Extension Requirements (Optional)
 
-- Search notes by title
-- Sort notes by last updated
-- Auto-save edits
-- Persist data using SQLite or a lightweight database
-- Extract reusable React components
-- Add basic unit tests
-- Discuss how the application would scale in production
+These requirements are only expected if time allows or if introduced by the interviewer.
+
+### Retry Failed Jobs
+
+Failed jobs should be retried automatically up to a maximum number of attempts.
+
+For example:
+
+```text
+pending
+   ↓
+processing
+   ↓
+failed
+   ↓
+processing
+   ↓
+completed
+```
+
+The job should keep track of the number of attempts.
+
+### Idempotency
+
+Consider what happens if the same job is accidentally processed more than once.
+
+The system should avoid producing unintended duplicate side effects.
+
+### Concurrent Processing
+
+The service should be capable of processing multiple jobs concurrently.
+
+Consider:
+
+- How many jobs can run at the same time?
+- What happens when many jobs are submitted simultaneously?
+- How are job state transitions kept consistent?
+
+### Production Considerations
+
+Discuss how the application would change if:
+
+- The service ran on multiple instances
+- Jobs needed to survive application restarts
+- There were millions of jobs
+- Job processing needed to be distributed across multiple workers
+- A job processor became temporarily unavailable
+
+The candidate does not need to implement these features. The focus is on explaining the relevant tradeoffs and possible approaches.
+
+### Testing
+
+If time allows, add basic tests covering important behavior such as:
+
+- Creating a job
+- Retrieving a job
+- Processing a job
+- Handling nonexistent jobs
+- Handling processing failures
 
 ## 📝 Notes for the Candidate
 
-- Focus on writing clean, readable, and maintainable code
+- Focus on writing clean, readable, and maintainable TypeScript
 - You may ask clarifying questions at any time
 - You are encouraged to explain your thought process while coding
 - It is okay to make assumptions—just communicate them clearly
 - If you get stuck, talk through your approach
-- Prioritize functionality over visual polish
+- Prioritize correctness and functionality over completeness
+- You do not need to implement every extension requirement
+- Avoid over-engineering the solution for the initial requirements
 
 ## 🎯 Evaluation Criteria
 
 You will be evaluated based on:
 
-- Correctness – Does the implementation meet the requirements?
-- Code Quality – Is the code clean, organized, and readable?
-- API Design – Are the endpoints clear and appropriate?
-- State Management – Is frontend state handled clearly and predictably?
-- Problem Solving – How do you approach and break down the problem?
-- Communication – Do you clearly explain your decisions and tradeoffs?
+- **Correctness** – Does the implementation meet the requirements?
+- **TypeScript** – Are types used effectively and appropriately?
+- **Code Quality** – Is the code clean, organized, and readable?
+- **API Design** – Are the endpoints and responses clear and appropriate?
+- **Asynchronous Programming** – Is asynchronous work handled correctly?
+- **Error Handling** – Are invalid states and failures handled appropriately?
+- **Problem Solving** – How do you approach and break down the problem?
+- **Engineering Judgment** – Do you recognize tradeoffs and potential production concerns?
+- **Communication** – Do you clearly explain your decisions and assumptions?
