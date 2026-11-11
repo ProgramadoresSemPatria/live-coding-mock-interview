@@ -1,206 +1,128 @@
-# Live Coding Mock Interview 18 – Task Queue API
+# Live Coding Mock Interview 19 - Solana To-do List DApp
 
-This challenge consists of implementing a small backend service for submitting and processing asynchronous tasks using TypeScript.
+This challenge consists of implementing a small on-chain to-do list
+program on Solana.
 
-The goal is to evaluate senior-level backend fundamentals such as API design, TypeScript usage, asynchronous programming, state management, error handling, code organization, and engineering judgment.
+The goal is to evaluate backend-focused Solana development skills,
+including Rust, Anchor, account modeling, Program Derived Addresses
+(PDAs), instruction design, authorization, validation, and error
+handling.
 
-The candidate will start from a minimal pre-configured TypeScript project to avoid setup overhead.
+You will start from a preconfigured Anchor project with a Solana program
+scaffold and a ready-to-use environment for building, deploying, and
+invoking the program. No frontend implementation is required.
 
-The application does not require authentication, a database, or external infrastructure. Store data in memory only and focus on correctness, clarity, and reasoning rather than completeness.
+You have **45 minutes**. Prioritize a correct, understandable
+implementation over completeness.
 
 ## 🔧 Functional Requirements
 
-### 1. Create a Job
+### 1. Create a Task
 
-Provide an endpoint for submitting a new job.
+-   [ ] **Create a task:** Allow a user to create a task with a
+    description.
+-   [ ] **Associate the task with its creator:** Record the wallet that
+    created the task.
+-   [ ] **Set the initial status:** A newly created task should be
+    pending.
+-   [ ] **Reject invalid descriptions:** Do not allow an empty task
+    description.
 
-Example request:
+### 2. Retrieve Tasks
 
-```http
-POST /jobs
-Content-Type: application/json
+-   [ ] **Retrieve a user's tasks:** Support retrieving tasks associated
+    with a given wallet.
+-   [ ] **Expose task details:** Make each task's description, status,
+    and creator available.
+-   [ ] **Handle users without tasks:** Support the case where a wallet
+    has not created any tasks.
 
-{
-  "type": "email",
-  "payload": {
-    "to": "alice@example.com",
-    "subject": "Welcome!"
-  }
-}
-```
+### 3. Complete a Task
 
-Each job should contain at least:
+-   [ ] **Complete a task:** Allow a task to be marked as completed.
+-   [ ] **Enforce ownership:** Only the wallet that created a task may
+    complete it.
+-   [ ] **Prevent invalid state changes:** A completed task must not be
+    completed again.
 
-- Identifier
-- Type
-- Payload
-- Status
-- Creation timestamp
+### 4. Handle Errors
 
-A newly created job should start with a `pending` status.
-
-### 2. Get a Job
-
-Provide an endpoint for retrieving a job by its identifier.
-
-Example:
-
-```http
-GET /jobs/:id
-```
-
-The response should include the current job status.
-
-Possible statuses:
-
-```text
-pending
-processing
-completed
-failed
-```
-
-### 3. Process Jobs
-
-Jobs should be processed asynchronously after they are created.
-
-For this exercise, the actual processing can be simulated rather than performing a real operation.
-
-For example, an email job could simply wait for a short period and then complete successfully.
-
-The job status should transition appropriately:
-
-```text
-pending → processing → completed
-```
-
-If processing fails:
-
-```text
-pending → processing → failed
-```
-
-### 4. List Jobs
-
-Provide an endpoint for retrieving existing jobs.
-
-Example:
-
-```http
-GET /jobs
-```
-
-The response should contain the jobs currently stored by the application.
-
-### 5. Error Handling
-
-The API should handle common invalid requests appropriately.
-
-Examples include:
-
-- Attempting to retrieve a job that does not exist
-- Missing required fields when creating a job
-- Invalid job types
-- Invalid request payloads
+-   [ ] **Validate accounts:** Reject invalid or unexpected accounts.
+-   [ ] **Handle missing tasks:** Return an appropriate error when a
+    task cannot be found.
+-   [ ] **Handle unauthorized actions:** Reject attempts to modify
+    another user's task.
+-   [ ] **Provide meaningful errors:** Use clear program errors for
+    invalid input or state.
 
 ## 🧠 Technical Constraints
 
-- Language: TypeScript
-- Runtime: Node.js
-- Expose a simple REST API
-- Store data in memory only
-- No database is required
-- No authentication is required
-- Job processing can be simulated
-- Keep the implementation simple and focused
-- Use asynchronous programming appropriately
-- Avoid unnecessary dependencies or architecture
+-   [ ] **Blockchain:** Solana.
+-   [ ] **Program language:** Rust.
+-   [ ] **Program framework:** Anchor.
+-   [ ] **On-chain persistence:** Store task data on Solana; do not use
+    a centralized database.
+-   [ ] **Task ownership:** Associate tasks with the wallet that created
+    them.
+-   [ ] **Authorization:** Enforce ownership checks in the program.
+-   [ ] **State management:** Persist task status and update it through
+    program instructions.
+-   [ ] **Environment:** Use the preconfigured build, deployment, and
+    test setup.
 
-The candidate is free to choose the HTTP framework and supporting libraries.
+No frontend or user interface is required. The program will be built,
+deployed, and invoked using the provided development setup.
 
-## ⭐ Extension Requirements (Optional)
+The candidate is responsible for designing the task account model,
+implementing the required instructions, and making task data
+retrievable.
 
-These requirements are only expected if time allows or if introduced by the interviewer.
+## ⭐ Optional Extensions
 
-### Retry Failed Jobs
+Only attempt these if the core requirements are complete or if the
+interviewer asks you to explore them.
 
-Failed jobs should be retried automatically up to a maximum number of attempts.
+-   [ ] **Delete a task:** Allow its creator to delete one of their
+    tasks.
+-   [ ] **Edit a task:** Allow its creator to update the task
+    description.
+-   [ ] **Reopen a task:** Allow a completed task to return to pending.
+-   [ ] **Add task limits:** Define and enforce a maximum description
+    length or task count.
 
-For example:
-
-```text
-pending
-   ↓
-processing
-   ↓
-failed
-   ↓
-processing
-   ↓
-completed
-```
-
-The job should keep track of the number of attempts.
-
-### Idempotency
-
-Consider what happens if the same job is accidentally processed more than once.
-
-The system should avoid producing unintended duplicate side effects.
-
-### Concurrent Processing
-
-The service should be capable of processing multiple jobs concurrently.
-
-Consider:
-
-- How many jobs can run at the same time?
-- What happens when many jobs are submitted simultaneously?
-- How are job state transitions kept consistent?
-
-### Production Considerations
-
-Discuss how the application would change if:
-
-- The service ran on multiple instances
-- Jobs needed to survive application restarts
-- There were millions of jobs
-- Job processing needed to be distributed across multiple workers
-- A job processor became temporarily unavailable
-
-The candidate does not need to implement these features. The focus is on explaining the relevant tradeoffs and possible approaches.
-
-### Testing
-
-If time allows, add basic tests covering important behavior such as:
-
-- Creating a job
-- Retrieving a job
-- Processing a job
-- Handling nonexistent jobs
-- Handling processing failures
+You may also be asked to discuss how you would handle a large number of
+tasks, account storage costs, or efficient discovery of a user's tasks.
+These discussions do not need to be implemented.
 
 ## 📝 Notes for the Candidate
 
-- Focus on writing clean, readable, and maintainable TypeScript
-- You may ask clarifying questions at any time
-- You are encouraged to explain your thought process while coding
-- It is okay to make assumptions—just communicate them clearly
-- If you get stuck, talk through your approach
-- Prioritize correctness and functionality over completeness
-- You do not need to implement every extension requirement
-- Avoid over-engineering the solution for the initial requirements
+-   You may ask clarifying questions at any time.
+-   Explain your approach and important decisions while coding.
+-   It is okay to make assumptions---just communicate them clearly.
+-   If you get stuck, talk through your approach.
+-   Prioritize correctness and functionality over completeness.
+-   You do not need to implement optional extensions.
+-   Avoid over-engineering the initial solution.
 
 ## 🎯 Evaluation Criteria
 
 You will be evaluated based on:
 
-- **Correctness** – Does the implementation meet the requirements?
-- **TypeScript** – Are types used effectively and appropriately?
-- **Code Quality** – Is the code clean, organized, and readable?
-- **API Design** – Are the endpoints and responses clear and appropriate?
-- **Asynchronous Programming** – Is asynchronous work handled correctly?
-- **Error Handling** – Are invalid states and failures handled appropriately?
-- **Problem Solving** – How do you approach and break down the problem?
-- **Engineering Judgment** – Do you recognize tradeoffs and potential production concerns?
-- **Communication** – Do you clearly explain your decisions and assumptions?
+-   **Correctness** -- Does the program meet the functional
+    requirements?
+-   **Rust and Anchor** -- Are Rust and Anchor used clearly and
+    appropriately?
+-   **Solana Fundamentals** -- Does the candidate understand accounts,
+    signers, PDAs, ownership, and instructions?
+-   **Account Design** -- Is task data modeled and stored appropriately?
+-   **Authorization and Validation** -- Are ownership and input
+    constraints enforced by the program?
+-   **Error Handling** -- Are invalid inputs, missing tasks, and invalid
+    state transitions handled sensibly?
+-   **Code Quality** -- Is the code readable and maintainable?
+-   **Problem Solving** -- How does the candidate break down the task
+    and make progress?
+-   **Engineering Judgment** -- Does the candidate recognize storage,
+    account discovery, and scalability tradeoffs?
+-   **Communication** -- Are assumptions and tradeoffs explained
+    clearly?
